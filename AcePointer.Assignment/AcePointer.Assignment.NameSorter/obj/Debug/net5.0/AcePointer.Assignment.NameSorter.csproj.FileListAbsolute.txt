@@ -1,0 +1,13 @@
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.exe
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.deps.json
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.runtimeconfig.json
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.runtimeconfig.dev.json
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.dll
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\bin\Debug\net5.0\AcePointer.Assignment.NameSorter.pdb
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.csprojAssemblyReference.cache
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.AssemblyInfoInputs.cache
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.AssemblyInfo.cs
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.csproj.CoreCompileInputs.cache
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.dll
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.pdb
+D:\Profiles\Assessment\AcePointer.Assignment\AcePointer.Assignment.NameSorter\obj\Debug\net5.0\AcePointer.Assignment.NameSorter.genruntimeconfig.cache
