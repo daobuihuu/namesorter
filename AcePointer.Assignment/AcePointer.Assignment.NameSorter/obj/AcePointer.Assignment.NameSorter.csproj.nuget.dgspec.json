@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Profiles\\Assessment\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj": {}
+    "D:\\Projects\\Assessment\\AcePointer\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj": {}
   },
   "projects": {
-    "D:\\Profiles\\Assessment\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj": {
+    "D:\\Projects\\Assessment\\AcePointer\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Profiles\\Assessment\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj",
+        "projectUniqueName": "D:\\Projects\\Assessment\\AcePointer\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj",
         "projectName": "AcePointer.Assignment.NameSorter",
-        "projectPath": "D:\\Profiles\\Assessment\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj",
+        "projectPath": "D:\\Projects\\Assessment\\AcePointer\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\AcePointer.Assignment.NameSorter.csproj",
         "packagesPath": "C:\\Users\\buihu\\.nuget\\packages\\",
-        "outputPath": "D:\\Profiles\\Assessment\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\obj\\",
+        "outputPath": "D:\\Projects\\Assessment\\AcePointer\\AcePointer.Assignment\\AcePointer.Assignment.NameSorter\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
