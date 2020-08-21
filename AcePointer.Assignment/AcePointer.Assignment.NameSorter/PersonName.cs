@@ -7,7 +7,7 @@ namespace AcePointer.Assignment.NameSorter
         public string LastName { get; set; }
         public string GivenName { get; set; }
 
-        public PersonName(string givenName, string lastName)
+        public PersonName(string givenName = "", string lastName = "")
         {
             if (string.IsNullOrEmpty(givenName))
             {

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcePointer.Assignment.NameSorter", "AcePointer.Assignment.NameSorter\AcePointer.Assignment.NameSorter.csproj", "{49D41B19-624F-4C01-A055-C34F9AF0EE5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcePointer.Assignment.NameSorter", "AcePointer.Assignment.NameSorter\AcePointer.Assignment.NameSorter.csproj", "{49D41B19-624F-4C01-A055-C34F9AF0EE5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcePointer.Assignment.NameSorter.Tests", "AcePointer.Assignment.NameSorter.Tests\AcePointer.Assignment.NameSorter.Tests.csproj", "{E1A2233F-19CF-492C-9B75-757FE3F7A105}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{49D41B19-624F-4C01-A055-C34F9AF0EE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49D41B19-624F-4C01-A055-C34F9AF0EE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49D41B19-624F-4C01-A055-C34F9AF0EE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A2233F-19CF-492C-9B75-757FE3F7A105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A2233F-19CF-492C-9B75-757FE3F7A105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A2233F-19CF-492C-9B75-757FE3F7A105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A2233F-19CF-492C-9B75-757FE3F7A105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
