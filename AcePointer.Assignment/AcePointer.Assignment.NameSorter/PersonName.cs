@@ -25,7 +25,12 @@ namespace AcePointer.Assignment.NameSorter
 
         public int CompareTo(PersonName other)
         {
-            return other.LastName.CompareTo(this.LastName);
+            return other.LastName.CompareTo(LastName);
+        }
+
+        public override string ToString()
+        {
+            return $"{GivenName} {LastName}";
         }
     }
 }
