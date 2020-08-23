@@ -53,6 +53,21 @@ namespace AcePointer.Assignment.NameSorter.Tests.UnitTests
             names.Should().BeEquivalentTo(sortedNames);
         }
 
+        [Test]
+        public void Should_Sort_Given_Name_And_Last_Name_By_Descending()
+        {
+            List<PersonName> names = GivenUnsortedListFromAssignment();
+            List<PersonName> sortedNames = GivenDescendingSortedListFromAssignment();
+
+            names.Sort(new PersonNameComparer((x, y) =>
+            {
+                int result = y.LastName.CompareTo(x.LastName);
+                return result != 0 ? result : y.GivenName.CompareTo(x.GivenName);
+            }));
+
+            names.Should().BeEquivalentTo(sortedNames);
+        }
+
         private static List<PersonName> GivenUnsortedListFromAssignment()
         {
             List<PersonName> names = new List<PersonName>();
@@ -87,6 +102,25 @@ namespace AcePointer.Assignment.NameSorter.Tests.UnitTests
             names.Add(new PersonName("Janet", "Parsons"));
             names.Add(new PersonName("Frankie Conner", "Ritter"));
             names.Add(new PersonName("Shelby Nathan", "Yoder"));
+
+            return names;
+        }
+
+        private static List<PersonName> GivenDescendingSortedListFromAssignment()
+        {
+            List<PersonName> names = new List<PersonName>();
+
+            names.Add(new PersonName("Shelby Nathan", "Yoder"));
+            names.Add(new PersonName("Frankie Conner", "Ritter"));
+            names.Add(new PersonName("Janet", "Parsons"));
+            names.Add(new PersonName("Mikayla", "Lopez"));
+            names.Add(new PersonName("London", "Lindsey"));
+            names.Add(new PersonName("Vaughn", "Lewis"));
+            names.Add(new PersonName("Leo", "Gardner"));
+            names.Add(new PersonName("Hunter Uriah Mathew", "Clarke"));
+            names.Add(new PersonName("Beau Tristan", "Bentley"));
+            names.Add(new PersonName("Adonis Julius", "Archer"));
+            names.Add(new PersonName("Marin", "Alvarez"));
 
             return names;
         }

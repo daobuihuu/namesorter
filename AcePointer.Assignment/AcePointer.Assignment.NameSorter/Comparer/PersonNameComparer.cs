@@ -20,6 +20,8 @@ namespace AcePointer.Assignment.NameSorter.Comparer
 
         private int DefaultComparer(PersonName x, PersonName y)
         {
+            if (ReferenceEquals(x, y)) return 0;
+
             int result = x.LastName.CompareTo(y.LastName);
             return result != 0 ? result : x.GivenName.CompareTo(y.GivenName);
         }
