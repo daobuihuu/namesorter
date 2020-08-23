@@ -21,7 +21,7 @@ Program is built following SOLID principals
 - Composite Pattern: export feature leverages composite pattern that can output to both console and text file
 - Strategy Pattern: use delegate for person name comparer as a simple implementation of strategy pattern
 
-Others
+## Others
 Fluent Interface: chaining main features using fluent interface (ImportData, SortData, ExportData)
 
 ## Third-Party & Built In Features
