@@ -8,24 +8,17 @@ namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
     public class PersonNameTextFileImporter : IDataImporter<PersonName>
     {
-        private readonly string _filePath;
-
-        public PersonNameTextFileImporter(string filePath)
+        public List<PersonName> ReadData(string filePath)
         {
-            _filePath = filePath;
-        }
-
-        public List<PersonName> ReadData()
-        {
-            if (File.Exists(_filePath))
+            if (File.Exists(filePath))
             {
-                return File.ReadAllLines(_filePath).Select(ParseData).ToList();
+                return File.ReadAllLines(filePath).Select(ParseData).ToList();
             }
 
             throw new FileNotFoundException();
         }
 
-        public PersonName ParseData(string fullName)
+        private PersonName ParseData(string fullName)
         {
             if (string.IsNullOrEmpty(fullName))
             {
@@ -40,8 +33,7 @@ namespace AcePointer.Assignment.NameSorter.ImportsExports
                 return new PersonName(fullName);
             }
 
-            return new PersonName
-                (fullName.Substring(0, lastSpace), fullName.Substring(lastSpace + 1));
+            return new PersonName(fullName.Substring(0, lastSpace), fullName.Substring(lastSpace + 1));
         }
     }
 }

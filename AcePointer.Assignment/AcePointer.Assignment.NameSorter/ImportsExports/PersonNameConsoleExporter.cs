@@ -6,9 +6,9 @@ namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
     public class PersonNameConsoleExporter : IDataExporter<PersonName>
     {
-        public void Write(List<PersonName> names)
+        public void Write(ExportModel<PersonName> exportModel)
         {
-            foreach (var name in names)
+            foreach (var name in exportModel.Collection)
             {
                 Console.WriteLine(name.ToString());
             }

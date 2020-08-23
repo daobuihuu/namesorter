@@ -4,8 +4,6 @@ namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
     public interface IDataImporter<T>
     {
-        List<T> ReadData();
-
-        T ParseData(string value);
+        List<T> ReadData(string source);
     }
 }

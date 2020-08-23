@@ -17,20 +17,17 @@ namespace AcePointer.Assignment.NameSorter
             var config = GetConfiguration();
             var serviceProvider = ConfigureServices(config);
 
-            string outputFilePath = Utility.GetAbsolutePath(@"Data\sorted-names-list.txt");
-
-            // Output result to console and text file
-            IEnumerable<IDataExporter<PersonName>> outputs = new List<IDataExporter<PersonName>>
-            {
-                new PersonNameConsoleExporter(),
-                new PersonNameTextFileExporter(outputFilePath)
-            };
+            string inputFilePath = Utility.GetFullFilePath(config.GetValue<string>("InputRelativePath"));
+            string outputFilePath = Utility.GetFullFilePath(config.GetValue<string>("OutputRelativePath"));
 
             using (serviceProvider as IDisposable)
             {
-                var service = serviceProvider.GetRequiredService<NameSorter>();
+                var nameSorter = serviceProvider.GetRequiredService<NameSorter>();
 
-                service.SortNames();
+                nameSorter
+                    .ImportData(inputFilePath)
+                    .SortData()
+                    .ExportData(outputFilePath);
             }
 
             Console.Read();
@@ -38,39 +35,30 @@ namespace AcePointer.Assignment.NameSorter
 
         private static IConfiguration GetConfiguration()
         {
-            IConfiguration config = new ConfigurationBuilder()
+            return new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", true, true)
             .Build();
-
-            return config;
         }
 
         static IServiceProvider ConfigureServices(IConfiguration config)
         {
-            string inputFilePath = Utility.GetAbsolutePath(config.GetValue<string>("InputRelativePath"));
-            string outputFilePath = Utility.GetAbsolutePath(config.GetValue<string>("OutputRelativePath"));
-
             var serilogLogger = new LoggerConfiguration()
-            .WriteTo.Console()
-            .WriteTo.File("Logs\\log.txt")
+            .ReadFrom.Configuration(config)
             .CreateLogger();
 
             var serviceProvider = new ServiceCollection()
             .AddLogging(configure => configure.AddSerilog(serilogLogger))
             .AddScoped<NameSorter>()
             .AddScoped<ILogger<NameSorter>, Logger<NameSorter>>()
-            //.AddScoped<IDataExporter<PersonName>, NamesToConsoleExporter>()
-            //.AddScoped<IDataExporter<PersonName>, NamesToTextFileExporter>(x => new NamesToTextFileExporter(outputFilePath))
-            .AddScoped<IDataImporter<PersonName>, PersonNameTextFileImporter>(x  => new PersonNameTextFileImporter(inputFilePath))
+            .AddScoped<IDataImporter<PersonName>, PersonNameTextFileImporter>()
             .AddScoped<IDataExporter<PersonName>, CompositeDataExporter>(x => new CompositeDataExporter(
                 new List<IDataExporter<PersonName>>
                 {
                     // Use composite exporter to output to both console and text file
                     new PersonNameConsoleExporter(),
-                    new PersonNameTextFileExporter(outputFilePath)
+                    new PersonNameTextFileExporter()
                 }
              ))
-            //.AddComposite<IDataExporter<PersonName>, CombinedDataExporter>()
             .BuildServiceProvider();
 
             return serviceProvider;

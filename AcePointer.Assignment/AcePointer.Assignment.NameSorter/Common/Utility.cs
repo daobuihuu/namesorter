@@ -4,7 +4,7 @@ namespace AcePointer.Assignment.NameSorter.Common
 {
     public class Utility
     {
-        public static string GetAbsolutePath(string fileName)
+        public static string GetFullFilePath(string fileName)
         {
             return Path.Combine(Directory.GetCurrentDirectory(), fileName);
         }

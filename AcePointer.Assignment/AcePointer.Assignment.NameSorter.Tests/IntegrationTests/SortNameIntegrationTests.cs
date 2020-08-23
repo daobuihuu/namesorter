@@ -19,21 +19,31 @@ namespace AcePointer.Assignment.NameSorter.Tests.IntegrationTests
         [SetUp]
         public void SetUp_Integration_Test_With_Exported_File()
         {
-            _inputFullPath = Utility.GetAbsolutePath(@"Data\unsorted-names-list.txt");
-            _outputFullPath = Utility.GetAbsolutePath(@"Data\sorted-names-list.txt");
-            _expectedOutputFullPath = Utility.GetAbsolutePath(@"Data\expected-sorted-names-list.txt");
+            _inputFullPath = Utility.GetFullFilePath(@"Data\unsorted-names-list.txt");
+            _outputFullPath = Utility.GetFullFilePath(@"Data\sorted-names-list.txt");
+            _expectedOutputFullPath = Utility.GetFullFilePath(@"Data\expected-sorted-names-list.txt");
 
             ILoggerFactory loggerFactory = new NullLoggerFactory();
 
-            _sorter = new NameSorter(new PersonNameTextFileImporter(_inputFullPath),
-                new PersonNameTextFileExporter(_outputFullPath),
+            _sorter = new NameSorter(new PersonNameTextFileImporter(),
+                new PersonNameTextFileExporter(),
                 loggerFactory.CreateLogger<NameSorter>());
         }
 
         [Test]
-        public void Should_Export_File_With_Correct_Order()
+        public void Should_Import_From_File_Successfully_With_1000_Records()
         {
-            _sorter.SortNames();
+            _sorter.ImportData(_inputFullPath);
+
+            _sorter.Collection.Should().HaveCount(1000);
+        }
+
+        [Test]
+        public void Should_Sort_And_Export_To_File_With_Correct_Order()
+        {
+            _sorter.ImportData(_inputFullPath)
+                .SortData()
+                .ExportData(_outputFullPath);
 
             string sortedNamesContent = File.ReadAllText(_outputFullPath);
             string expectedNamesContent = File.ReadAllText(_expectedOutputFullPath);

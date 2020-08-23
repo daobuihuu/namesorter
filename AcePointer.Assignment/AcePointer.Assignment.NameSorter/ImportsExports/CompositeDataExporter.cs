@@ -16,11 +16,11 @@ namespace AcePointer.Assignment.NameSorter.ImportsExports
             _exporters = exporters ?? throw new ArgumentNullException(nameof(exporters));
         }
 
-        public void Write(List<PersonName> list)
+        public void Write(ExportModel<PersonName> exportModel)
         {
             foreach (var exporter in _exporters)
             {
-                exporter.Write(list);
+                exporter.Write(exportModel);
             }
         }
     }
