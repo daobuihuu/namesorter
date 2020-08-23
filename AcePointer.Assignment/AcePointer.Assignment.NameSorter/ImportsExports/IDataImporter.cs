@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.IO.Enumeration;
 
 namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
     public interface IDataImporter<T>
     {
-        List<T> ReadData(string path);
+        List<T> ReadData();
 
         T ParseData(string value);
     }

@@ -5,11 +5,11 @@ using AcePointer.Assignment.NameSorter.Models;
 
 namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
-    public class NamesToTextFileExporter : IDataExporter<PersonName>
+    public class PersonNameTextFileExporter : IDataExporter<PersonName>
     {
         private readonly string _fileName;
 
-        public NamesToTextFileExporter(string fileName)
+        public PersonNameTextFileExporter(string fileName)
         {
             _fileName = fileName;
         }

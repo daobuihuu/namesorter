@@ -6,13 +6,20 @@ using AcePointer.Assignment.NameSorter.Models;
 
 namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
-    public class NamesFromTextFileImporter : IDataImporter<PersonName>
+    public class PersonNameTextFileImporter : IDataImporter<PersonName>
     {
-        public List<PersonName> ReadData(string path)
+        private readonly string _filePath;
+
+        public PersonNameTextFileImporter(string filePath)
         {
-            if (File.Exists(path))
+            _filePath = filePath;
+        }
+
+        public List<PersonName> ReadData()
+        {
+            if (File.Exists(_filePath))
             {
-                return File.ReadAllLines(path).Select(ParseData).ToList();
+                return File.ReadAllLines(_filePath).Select(ParseData).ToList();
             }
 
             throw new FileNotFoundException();

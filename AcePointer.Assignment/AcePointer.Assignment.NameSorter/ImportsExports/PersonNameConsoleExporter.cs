@@ -4,7 +4,7 @@ using AcePointer.Assignment.NameSorter.Models;
 
 namespace AcePointer.Assignment.NameSorter.ImportsExports
 {
-    public class NamesToConsoleExporter : IDataExporter<PersonName>
+    public class PersonNameConsoleExporter : IDataExporter<PersonName>
     {
         public void Write(List<PersonName> names)
         {

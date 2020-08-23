@@ -1,54 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using AcePointer.Assignment.NameSorter.Comparer;
 using AcePointer.Assignment.NameSorter.ImportsExports;
 using AcePointer.Assignment.NameSorter.Models;
+using Microsoft.Extensions.Logging;
 
 namespace AcePointer.Assignment.NameSorter
 {
     public class NameSorter
     {
-        public void Run()
-        {
-            var inputFullPath = GetAbsolutePath("unsorted-names-list.txt");
-            var outputFullPath = GetAbsolutePath("sorted-names-list.txt");
+        private readonly IDataImporter<PersonName> _importer;
+        private readonly IDataExporter<PersonName> _exporter;
+        private readonly ILogger<NameSorter> _logger;
 
-            SortNames(inputFullPath, outputFullPath);
+        public NameSorter(IDataImporter<PersonName> importer, IDataExporter<PersonName> exporter, ILogger<NameSorter> logger)
+        {
+            _importer = importer ?? throw new ArgumentNullException(nameof(importer));
+            _exporter = exporter ?? throw new ArgumentNullException(nameof(exporter));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public void SortNames(string inputFullPath, string outputFullPath)
+        public void SortNames()
         {
-            var names = ReadNamesFromFile(inputFullPath, new NamesFromTextFileImporter());
+            var names = ReadNamesFromFile();
 
             Console.WriteLine($"Imported {names.Count} records");
+            _logger.LogInformation($"Imported {names.Count} records");
 
             var sw = Stopwatch.StartNew();
-
             names.Sort(new PersonNameComparer());
-
             sw.Stop();
-            Console.WriteLine($"Time: {sw.ElapsedMilliseconds}ms.");
 
-            WriteNames(names, new NamesToTextFileExporter(outputFullPath));
+            Console.WriteLine($"Imported {names.Count} records");
+            _logger.LogInformation($"Sorting time: {sw.ElapsedMilliseconds}ms.");
 
-            WriteNames(names, new NamesToConsoleExporter());
+            WriteNames(names);
         }
 
-        public string GetAbsolutePath(string fileName)
+        private List<PersonName> ReadNamesFromFile()
         {
-            return Path.Combine(Directory.GetCurrentDirectory(), "Data", fileName);
+            return _importer.ReadData();
         }
 
-        private List<PersonName> ReadNamesFromFile(string filePath, IDataImporter<PersonName> dataImporter)
+        private void WriteNames(List<PersonName> names)
         {
-            return dataImporter.ReadData(filePath);
-        }
-
-        private void WriteNames(List<PersonName> names, IDataExporter<PersonName> dataExporter)
-        {
-            dataExporter.Write(names);
+            _exporter.Write(names);
         }
     }
 }

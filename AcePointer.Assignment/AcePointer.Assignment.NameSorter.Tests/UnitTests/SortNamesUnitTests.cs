@@ -13,7 +13,7 @@ namespace AcePointer.Assignment.NameSorter.Tests.UnitTests
         public void Should_Has_Correct_Sort_Order_With_Full_Given_Name_And_Last_Name()
         {
             List<PersonName> names = GivenUnsortedListFromAssignment();
-            List<PersonName> sortedNames = GivenUnsortedListFromAssignment();
+            List<PersonName> sortedNames = GivenSortedListFromAssignment();
 
             names.Sort(new PersonNameComparer());
 
@@ -21,7 +21,7 @@ namespace AcePointer.Assignment.NameSorter.Tests.UnitTests
         }
 
         [Test]
-        public void Should_Has_Correct_Sort_Order_For_Only_Single_Given_Name()
+        public void Should_Has_Correct_Sort_Order_For_Only_Given_Name()
         {
             List<PersonName> names = GivenUnsortedListWithOnlyGivenName();
             List<PersonName> sortedNames = GivenSortedListWithOnlyGivenName();
